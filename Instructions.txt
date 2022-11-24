@@ -1,0 +1,25 @@
+10.8 (Rational Numbers) Create a class called Rational for performing arithmetic with fractions.
+Write an app to test your class. Use integer variables to represent the private instance variables
+of the class—the numerator and the denominator. Provide a constructor that enables an object of 
+this class to be initialized when it’s declared. The constructor should store the fraction in reduced
+form. The fraction 2/4 is equivalent to 1/2 and would be stored in the object as 1 in the numerator and 2 in the denominator.
+
+Provide a parameterless constructor with default values in case no initializers are provided. Provide public methods that perform each of the following operations (all calculation results should be stored in a reduced form):
+                  a) Add two Rational numbers. 
+                  b) Subtract two Rational numbers.
+                  c) Multiply two Rational  numbers.
+                  d) Divide two Rational  numbers.
+                  e) Display Rational  numbers in the form a/b, where a is the  numerator and b is the denominator.
+                  f) Display Rational  numbers in floating-point format. (Consider providing formatting capabilities that enable the user of the class to specify the
+                      number of digits of precision to the right of the decimal point.)
+Your program should implement exception handling if needed.
+
+
+
+Reference:
+
+               https://en.wikipedia.org/wiki/Euclidean_algorithm
+
+
+
+page 433

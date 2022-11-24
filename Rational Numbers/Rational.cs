@@ -93,6 +93,6 @@ namespace Rational_Numbers
             return string.Format("({0} / {1})", numerator, denominator);
         }
 
-
+       
     }
 }

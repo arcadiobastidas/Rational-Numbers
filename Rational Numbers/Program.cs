@@ -76,7 +76,7 @@ do
 
     //Display Menu of Operations
     Console.WriteLine("Choose an arithmetic operation: ");
-    Console.WriteLine(" 1. Sum \n 2. Substract \n 3. Multiply \n 4.Divide");
+    Console.WriteLine(" 1. Sum \n 2. Substract \n 3. Multiply \n 4.Divide \n 5. Exit" );
     
 
 }

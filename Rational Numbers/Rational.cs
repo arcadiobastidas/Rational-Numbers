@@ -8,6 +8,8 @@ namespace Rational_Numbers
 {
     public class Rational
     {
+        private int equationResult;
+
         //setting up properties for Rational Class
         private int numerator { get; set; }
         private int denominator { get; set; }
@@ -30,7 +32,12 @@ namespace Rational_Numbers
 
         }
 
-       
+        public Rational(int equationResult)
+        {
+            this.equationResult = equationResult;
+        }
+
+
         //recursive method to calculate minimun common divisor to reduce a fraction
         static int CalculateFractionReducer(int numerator, int denominator)
         {
@@ -68,6 +75,17 @@ namespace Rational_Numbers
 
             return new Rational(numerator * ReciprocalNumerator, denominator * ReciprocalDenominator);
         }
+
+        //Display Result as floating point
+
+        public void ResolveEquation(Rational obj)
+        {
+            float numerator = obj.numerator;
+            float denominator = obj.denominator;
+            float equationResult = numerator /denominator;
+            Console.WriteLine(equationResult);
+        }      
+
 
         //format output
         public override string ToString()

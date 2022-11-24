@@ -69,7 +69,7 @@ namespace Rational_Numbers
             return new Rational(numerator * ReciprocalNumerator, denominator * ReciprocalDenominator);
         }
 
-
+        //format output
         public override string ToString()
         {
             return string.Format("({0} / {1})", numerator, denominator);

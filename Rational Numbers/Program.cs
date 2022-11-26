@@ -1,27 +1,19 @@
 ﻿using Rational_Numbers;
 
-Console.WriteLine("Please enter 2 rational equations: ");
-
-//Get user input
-
-    //Fist equation
-    Console.Write("First Numerator: ");
-    int firstNumerator = int.Parse(Console.ReadLine());
-    Console.Write("First Denominator: ");
-    int firstDenominator = int.Parse(Console.ReadLine());
-
-    //Second Equation
-    Console.Write("Second Numerator: ");
-    int secondNumerator = int.Parse(Console.ReadLine());
-    Console.Write("Second Denominator: ");
-    int secondDenominator = int.Parse(Console.ReadLine());
-    Console.WriteLine();
-
-  
 //Initilaize objects for operations
-Rational RationalA = new Rational(firstNumerator, firstDenominator);
-Rational RationalB = new Rational(secondNumerator, secondDenominator);
-Rational Result;
+var RationalA = new Rational();
+var RationalB = new Rational();
+var Result = new Rational();
+
+//Set object values
+Console.WriteLine("Enter first Rational: ");
+RationalA.Ask();
+Console.WriteLine("Enter second Rational: ");
+RationalB.Ask();
+
+//Ask for results precision
+Console.Write("Set results decimal precision: ");
+int resultsPrecision = int.Parse(Console.ReadLine());
 
 //Switch operations
 int choice;
@@ -35,30 +27,44 @@ do
             Console.WriteLine("Sum Results: \n");
             Result = RationalA.Sum(RationalB);
             Console.WriteLine(Result.ToString());
-            Result.ResolveEquation(Result);
+            Console.WriteLine(Result.ResolveEquation(resultsPrecision));
             Console.WriteLine("______________");
+            Console.WriteLine();
             break;
+
         case 2:
             Console.WriteLine("Substraction Results: \n");
             Result = RationalA.Substract(RationalB);
             Console.WriteLine(Result.ToString());
-            Result.ResolveEquation(Result);
+            Console.WriteLine(Result.ResolveEquation(resultsPrecision));
             Console.WriteLine("______________");
+            Console.WriteLine();
             break;
+
         case 3:
             Console.WriteLine("Multiplication Results: \n");
             Result = RationalA.Multiply(RationalB);
             Console.WriteLine(Result.ToString());
-            Result.ResolveEquation(Result);
+            Console.WriteLine(Result.ResolveEquation(resultsPrecision));
             Console.WriteLine("______________");
+            Console.WriteLine();
             break;
+
         case 4:
             Console.WriteLine("Division Results: \n");
             Result = RationalA.Division(RationalB);
             Console.WriteLine(Result.ToString());
-            Result.ResolveEquation(Result);
+            Result.ResolveEquation(2);
+            Console.WriteLine(Result.ResolveEquation(resultsPrecision));
             Console.WriteLine("______________");
+            Console.WriteLine();
             break;
+
+        case 5:
+            Console.WriteLine("Goodbye");
+            System.Environment.Exit(1);
+            break;
+
         default:
             Console.WriteLine("Enter a valid number");
             Console.WriteLine("______________");
@@ -66,17 +72,9 @@ do
     }
 } while (choice != 5);
 
-
-
-
-
-
- void DisplayMenu()
+void DisplayMenu()
 {
-
     //Display Menu of Operations
     Console.WriteLine("Choose an arithmetic operation: ");
-    Console.WriteLine(" 1. Sum \n 2. Substract \n 3. Multiply \n 4.Divide \n 5. Exit" );
-    
-
+    Console.WriteLine(" 1. Sum \n 2. Substract \n 3. Multiply \n 4.Divide \n 5. Exit");
 }

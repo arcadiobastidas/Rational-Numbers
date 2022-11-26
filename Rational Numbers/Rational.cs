@@ -1,25 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Rational_Numbers
+﻿namespace Rational_Numbers
 {
     public class Rational
     {
-        private int equationResult;
-
         //setting up properties for Rational Class
         private int numerator { get; set; }
+
         private int denominator { get; set; }
 
         //Initializing Defualt Constructor
 
         public Rational()
         {
-            this.numerator = 0;
-            this.denominator = 1; //Denominator default is 1 since dividing by 0 is undefined.
+            this.numerator = 2;
+            this.denominator = 4; //Denominator default is 1 since dividing by 0 is undefined.
         }
 
         //Parameter Constructor
@@ -29,43 +22,60 @@ namespace Rational_Numbers
 
             this.numerator = numerator / CommonDivisor;
             this.denominator = denominator / CommonDivisor;
-
         }
-
-        public Rational(int equationResult)
-        {
-            this.equationResult = equationResult;
-        }
-
 
         //recursive method to calculate minimun common divisor to reduce a fraction
-        static int CalculateFractionReducer(int numerator, int denominator)
+        private static int CalculateFractionReducer(int numerator, int denominator)
         {
             if (denominator == 0)
                 return numerator;
             return CalculateFractionReducer(denominator, numerator % denominator);
-
         }
 
-       
         //Sum of rational numbers
         public Rational Sum(Rational obj)
         {
-            return new Rational((numerator + obj.numerator), (denominator +obj.denominator));
+            if (obj.denominator == denominator)
+            {
+                return new Rational((numerator + obj.numerator), (denominator));
+            }
+
+            //calculating values if denominators are not equal
+            int commonDenominator = obj.denominator * this.denominator;
+            int calculatedNumerator1 = obj.numerator * this.denominator;
+            int calculatedNumerator2 = this.numerator * obj.denominator;
+
+            return new Rational(calculatedNumerator1 + calculatedNumerator2, commonDenominator);
         }
 
-        //Substract Rational Numbes
+        //Substract Rational Numbers
         public Rational Substract(Rational obj)
         {
-            return new Rational(numerator - obj.numerator, denominator - obj.denominator);
+            if (obj.denominator == denominator)
+            {
+                return new Rational((numerator - obj.numerator), (denominator));
+            }
+
+            //calculating values if denominators are not equal
+            int commonDenominator = obj.denominator * this.denominator;
+            int calculatedNumerator1 = this.numerator * obj.denominator;
+            int calculatedNumerator2 = obj.numerator * this.denominator;
+
+            return new Rational(calculatedNumerator1 - calculatedNumerator2, commonDenominator);
         }
-        
+
         //Multiply Rational Numbers
         public Rational Multiply(Rational obj)
         {
-            return new Rational(numerator * obj.numerator, denominator * obj.denominator); 
+            if (obj.denominator == 0 || denominator == 0)
+            {
+                throw new DivideByZeroException("Can't divide by 0");
+            }
+            else
+            {
+                return new Rational(numerator * obj.numerator, denominator * obj.denominator);
+            }
         }
-
 
         //Divider Rational Numbers
         public Rational Division(Rational obj)
@@ -78,21 +88,32 @@ namespace Rational_Numbers
 
         //Display Result as floating point
 
-        public void ResolveEquation(Rational obj)
+        public float ResolveEquation(int precision)
         {
-            float numerator = obj.numerator;
-            float denominator = obj.denominator;
-            float equationResult = numerator /denominator;
-            Console.WriteLine(equationResult);
-        }      
+            float castedNumerator = numerator;
+            float castedDenominator = denominator;
+            float equationResult = castedNumerator / castedDenominator;
 
+            return ((float)Math.Round(equationResult, precision));
+        }
+
+        public void Ask()
+        {
+            Console.Write("Enter numerator: ");
+            numerator = int.Parse(Console.ReadLine());
+            Console.Write("Enter denominator: ");
+            denominator = int.Parse(Console.ReadLine());
+
+            if (denominator == 0)
+            {
+                throw new Exception(message: "Denominator can't be 0");
+            }
+        }
 
         //format output
         public override string ToString()
         {
             return string.Format("({0} / {1})", numerator, denominator);
         }
-
-       
     }
 }

@@ -97,6 +97,7 @@
             return ((float)Math.Round(equationResult, precision));
         }
 
+        //Ask user for object information
         public void Ask()
         {
             Console.Write("Enter numerator: ");

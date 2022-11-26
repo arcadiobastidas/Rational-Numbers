@@ -8,11 +8,12 @@ var Result = new Rational();
 //Set object values
 Console.WriteLine("Enter first Rational: ");
 RationalA.Ask();
-Console.WriteLine("Enter second Rational: ");
+
+Console.WriteLine("\nEnter second Rational: ");
 RationalB.Ask();
 
 //Ask for results precision
-Console.Write("Set results decimal precision: ");
+Console.Write("\nSet results decimal precision: ");
 int resultsPrecision = int.Parse(Console.ReadLine());
 
 //Switch operations

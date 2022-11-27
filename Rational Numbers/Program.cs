@@ -5,16 +5,18 @@ var RationalA = new Rational();
 var RationalB = new Rational();
 var Result = new Rational();
 
+
 //Set object values
-Console.WriteLine("Enter first Rational: ");
+Console.WriteLine("Enter first Rational: \n");
 RationalA.Ask();
 
-Console.WriteLine("\nEnter second Rational: ");
+Console.WriteLine("\nEnter second Rational: \n");
 RationalB.Ask();
 
 //Ask for results precision
 Console.Write("\nSet results decimal precision: ");
 int resultsPrecision = int.Parse(Console.ReadLine());
+Console.WriteLine();
 
 //Switch operations
 int choice;
@@ -71,11 +73,12 @@ do
             Console.WriteLine("______________");
             break;
     }
-} while (choice != 5);
+} while (choice != 6);
 
 void DisplayMenu()
 {
     //Display Menu of Operations
-    Console.WriteLine("Choose an arithmetic operation: ");
-    Console.WriteLine(" 1. Sum \n 2. Substract \n 3. Multiply \n 4.Divide \n 5. Exit");
+    Console.WriteLine("Choose an arithmetic operation: \n");
+    Console.WriteLine(" \t1. Sum \n \t2. Substract \n \t3. Multiply \n \t4.Divide \n \t5. Exit \n");
+    Console.Write("Choice: ");
 }

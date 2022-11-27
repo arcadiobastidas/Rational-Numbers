@@ -5,14 +5,22 @@
         //setting up properties for Rational Class
         private int numerator { get; set; }
 
-        private int denominator { get; set; }
+        //assignment as field for practice purposes
+        private int denominator;
+
+        //initializing denominator properties for practice purposes;
+        public int Denominator
+        {
+            get { return denominator; }
+            set { denominator = value; }
+        }
 
         //Initializing Defualt Constructor
 
         public Rational()
         {
-            this.numerator = 2;
-            this.denominator = 4; //Denominator default is 1 since dividing by 0 is undefined.
+            this.numerator = 0;
+            this.Denominator = 1; //Denominator default is 1 since dividing by 0 is undefined.
         }
 
         //Parameter Constructor
@@ -93,21 +101,32 @@
             float castedNumerator = numerator;
             float castedDenominator = denominator;
             float equationResult = castedNumerator / castedDenominator;
-
+            Console.Write("Result after dividing: ");
             return ((float)Math.Round(equationResult, precision));
         }
 
         //Ask user for object information
         public void Ask()
         {
-            Console.Write("Enter numerator: ");
-            numerator = int.Parse(Console.ReadLine());
-            Console.Write("Enter denominator: ");
-            denominator = int.Parse(Console.ReadLine());
-
-            if (denominator == 0)
+            try
             {
-                throw new Exception(message: "Denominator can't be 0");
+                Console.Write("Enter numerator =  ");
+                numerator = int.Parse(Console.ReadLine());
+                Console.Write("Enter denominator =  ");
+                denominator = int.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Numerator and denominator must benumbers!!\n");
+                Ask();
+            }
+            finally
+            {
+                if (denominator == 0)
+                {
+                    Console.WriteLine("Denominator can't be 0!!\n");
+                    Ask();
+                }
             }
         }
 

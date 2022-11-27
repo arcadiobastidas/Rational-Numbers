@@ -8,19 +8,12 @@
         //assignment as field for practice purposes
         private int denominator;
 
-        //initializing denominator properties for practice purposes;
-        public int Denominator
-        {
-            get { return denominator; }
-            set { denominator = value; }
-        }
-
         //Initializing Defualt Constructor
 
         public Rational()
         {
             this.numerator = 0;
-            this.Denominator = 1; //Denominator default is 1 since dividing by 0 is undefined.
+            this.denominator = 1; //Denominator default is 1 since dividing by 0 is undefined.
         }
 
         //Parameter Constructor

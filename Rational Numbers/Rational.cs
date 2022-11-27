@@ -117,7 +117,7 @@
             }
             catch (FormatException)
             {
-                Console.WriteLine("Numerator and denominator must benumbers!!\n");
+                Console.WriteLine("Numerator and denominator must be numbers!!\n");
                 Ask();
             }
             finally
